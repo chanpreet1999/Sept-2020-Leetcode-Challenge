@@ -1,4 +1,25 @@
 class Solution {
+
+
+    //APPROACH 1
+    //TC - O(n), Space-O(1)
+    public int maxProfit(int[] prices) {
+        if(prices.length == 0 || prices.length == 1)
+            return 0;
+        
+        int n = prices.length;
+        int ans = 0, max = prices[n-1];
+        for(int i = n-1; i >= 0; i--)
+        {
+            ans = Math.max( ans, max - prices[i] );
+            max = Math.max( max, prices[i] );
+        }
+        
+        return ans;
+    }
+
+    //APPROACH 1
+    //TC - O(n), Space- O(n)
     public int maxProfit(int[] prices) {
         if(prices.length == 0 || prices.length == 1)
             return 0;
